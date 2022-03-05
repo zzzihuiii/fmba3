@@ -29,23 +29,23 @@ def index():
         print(purchases, suppcard)
         model1 = joblib.load("CCU_dt")
         pred1 = model1.predict([[purchases, suppcard]])
-        s1 = "The score of credit card upgrade based on decision tree is: " + str(pred1)
+        s1 = "The score of credit card upgrade based on decision tree is: " + str(pred1[0][0])
         
         model2 = joblib.load("CCU_GB")
         pred2 = model2.predict([[purchases, suppcard]])
-        s2 = "The score of credit card upgrade based on SGB is: " + str(pred2)
+        s2 = "The score of credit card upgrade based on SGB is: " + str(pred2[0][0])
         
         model3 = joblib.load("CCU_NN")
         pred3 = model3.predict([[purchases, suppcard]])
-        s3 = "The score of credit card upgrade based on neural network is: " + str(pred3)
+        s3 = "The score of credit card upgrade based on neural network is: " + str(pred3[0][0])
         
         model4 = joblib.load("CCU_Reg")
         pred4 = model4.predict([[purchases, suppcard]])
-        s4 = "The score of credit card upgrade based on linear regression is: " + str(pred4)
+        s4 = "The score of credit card upgrade based on linear regression is: " + str(pred4[0][0])
         
         model5 = joblib.load("CCU_RF")
         pred5 = model5.predict([[purchases, suppcard]])
-        s5 = "The score of credit card upgrade based on decision tree is: " + str(pred5)
+        s5 = "The score of credit card upgrade based on decision tree is: " + str(pred5[0][0])
         
         return(render_template("index.html", result1=s1, result2=s2, result3=s3, result4=s4, result5=s5))
     else: 
